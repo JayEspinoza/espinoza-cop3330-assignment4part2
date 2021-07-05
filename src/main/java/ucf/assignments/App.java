@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class App extends Application {
@@ -52,6 +53,13 @@ class listManager{
         return currentList;
     }
 
+    // Method getMap gets the map
+    public HashMap<String, ArrayList<item>> getMap(){
+        HashMap<String, ArrayList<item>> todoLists = new HashMap<>();
+        // Return todoLists
+        return todoLists;
+    }
+
     // Method addTodo adds a new list to the
     // Map manager
     public void addTodo(String name){
@@ -74,7 +82,7 @@ class listManager{
     }
 
     // Method saveListAll saves all lists to external storage
-    public void saveList(ArrayList<item> list, String name){
+    public void saveListAll(ArrayList<item> list, String name){
         // Create a new file based on name
         // Iterate through the map
         // For loop through the current list for the length of the list
@@ -101,25 +109,28 @@ class list{
     }
 
     // Method displayAll displays all items in the list
-    public void displayAll(ArrayList<item> list){
+    public String displayAll(ArrayList<item> list){
         // For loop through the list for the length of the list
-        // Print all items completely in a grid format
-        // using getting functions
+        // Store all items completely in a grid format string
+        // using getter functions
         // end loop
+        return "Hello";
     }
 
     // Method display incomplete displays all incomplete items
-    public void displayIncomplete(ArrayList<item> list){
+    public String displayIncomplete(ArrayList<item> list){
         // For loop through the list for the length of the list
-        // If item status is incomplete, print item
+        // If item status is incomplete, store item in string
         // end loop
+        return "Hello";
     }
 
     // Method display complete displays all incomplete items
-    public void displayComplete(ArrayList<item> list){
+    public String displayComplete(ArrayList<item> list){
         // For loop through the list for the length of the list
-        // If item status is Complete, print item
+        // If item status is Complete, store item in String
         // end loop
+        return "Hello";
     }
 
     // Method saveList saves a list to external storage
@@ -130,6 +141,17 @@ class list{
         // Close file
     }
 
+    // Method addItem adds an item to a specific list
+    public void addItem(ArrayList<item> list){
+        // Create new item
+        // Prompt user for item info
+        // Add item to the list
+    }
+
+    // Method removeItem removes an item from a specific list
+    public void removeItem(ArrayList<item> list, String name){
+        // Remove item specified by name from the list
+    }
 }
 
 class item{
@@ -146,7 +168,7 @@ class item{
 
     // Method editDescription edits item descriptions
     public void editDate(String newDate){
-        // Set date to newDate
+        // Set dueDate to newDate
     }
 
     // Method completion changes status to "complete"
@@ -162,7 +184,7 @@ class item{
 
     // Method getDate returns date
     public String getDate(){
-        // Return date
+        // Return dueDate
         return "placeholder";
     }
 

@@ -1,27 +1,79 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+class App
+class ListController
+class listManager
+class list
+class item
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+javafx.Assignment4 <|-- App
 
-class ArrayList {
-Object[] elementData
-size()
+App -- ListController
+App -- listManager
+App -- list
+App -- item
+
+listManager -- list
+listManager -- item
+
+list -- item
+
+class App {
+main(String [] args) : void
+start(Stage primaryStage) : void
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class listManager {
+todoLists : HashMap<String, ArrayList<item>>
+currentList : ArrayList<item>
+
+getTodo(String name) : ArrayList<item>
+getMap() : HashMap<String, ArrayList<item>>
+addTodo(String name) : void
+removeList(String name) : void
+editList(String nameOld, String nameNew) : void
+saveListAll(ArrayList<item>, String name) : void
+loadList(String file) : void
 }
 
+class list {
+getItem(String number, ArrayList<item> list) : item
+displayAll(ArrayList<item> list) : String
+displayIncomplete(ArrayList<item> list) : String
+displayComplete(ArrayList<item> list) : String
+saveList(ArrayList<item>, String name) : void
+addItem(ArrayList<item> list) : void
+removeItem(ArrayList<item>, String name) : void
+}
+
+class item {
+- description : String
+- dueDate : String
+- status : String
+
+editDescription(String newDescription) : void
+editDate(String newDate) : void
+completion() : void
+}
+
+class ListController {
+- textArea: TextArea
+
+userInputEntered() : String
+textAreaScroll() : void
+addListClick() : void
+removeListClick() : void
+saveAllClick() : void
+editListClick() : void
+addItemClick() : void
+printCompClick() : void
+saveListClick() : void
+removeItemClick() : void
+printIncompClick() : void
+editItemClick() : void
+completeItemClick() : void
+printAllClick() : void
+}
 @enduml
