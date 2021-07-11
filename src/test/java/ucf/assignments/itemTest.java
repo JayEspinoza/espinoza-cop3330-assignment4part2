@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  Copyright 2021 first_name last_name
+ */
+
 package ucf.assignments;
 
 import org.junit.jupiter.api.Test;
@@ -9,39 +14,30 @@ class itemTest {
     @Test
     void editDescription() {
         // Create new item object
-        // Call editDescription with the parameter "Hello"
-        // Assert that item description is "Hello"
+        item testItem = new item("Hello", "2002-02-21");
+        // Call editDescription
+        testItem.editDescription("Helloz");
+        // Assert that item description is "Helloz"
+        assertEquals("Helloz", testItem.getDescription());
     }
 
     @Test
     void editDate() {
         // Create new item object
-        // Call editDate with parameter "2002-02-21"
-        // Assert that item date is "2002-02-21"
+        item testItem = new item("Hello", "2002-02-21");
+        // Call editDate
+        testItem.editDate("2002-02-24");
+        // Assert that item date is "2002-02-24"
+        assertEquals("2002-02-24", testItem.getDate());
     }
 
     @Test
     void completion() {
         // Create new item object
+        item testItem = new item("Hello", "2002-02-21");
         // Call completion
+        testItem.completion();
         // Assert that status is "Complete"
-    }
-
-    @Test
-    void getDescription() {
-        // Create new item object
-        // Assert that getDescription is "Hello"
-    }
-
-    @Test
-    void getDate() {
-        // Create new item object
-        // Assert that getDate is "2002-02-21"
-    }
-
-    @Test
-    void getStatus() {
-        // Create new item object
-        // Assert that getStatus is "Incomplete"
+        assertEquals("Complete", testItem.getStatus());
     }
 }

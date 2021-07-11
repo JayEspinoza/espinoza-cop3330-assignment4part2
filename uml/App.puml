@@ -3,7 +3,6 @@
 
 class App
 class ListController
-class listManager
 class list
 class item
 
@@ -11,12 +10,8 @@ class item
 javafx.Assignment4 <|-- App
 
 App -- ListController
-App -- listManager
 App -- list
 App -- item
-
-listManager -- list
-listManager -- item
 
 list -- item
 
@@ -25,20 +20,9 @@ main(String [] args) : void
 start(Stage primaryStage) : void
 }
 
-class listManager {
-todoLists : HashMap<String, ArrayList<item>>
-currentList : ArrayList<item>
-
-getTodo(String name) : ArrayList<item>
-getMap() : HashMap<String, ArrayList<item>>
-addTodo(String name) : void
-removeList(String name) : void
-editList(String nameOld, String nameNew) : void
-saveListAll(ArrayList<item>, String name) : void
-loadList(String file) : void
-}
 
 class list {
+getTodo() : ArrayList<item> list
 getItem(String number, ArrayList<item> list) : item
 displayAll(ArrayList<item> list) : String
 displayIncomplete(ArrayList<item> list) : String
@@ -46,6 +30,9 @@ displayComplete(ArrayList<item> list) : String
 saveList(ArrayList<item>, String name) : void
 addItem(ArrayList<item> list) : void
 removeItem(ArrayList<item>, String name) : void
+loadList(String file) : void
+clearList(ArrayList<item> list) : void
+validateDate(String date) : boolean
 }
 
 class item {
@@ -61,18 +48,13 @@ completion() : void
 class ListController {
 - textArea: TextArea
 
-userInputEntered() : String
-textAreaScroll() : void
-addListClick() : void
-removeListClick() : void
-saveAllClick() : void
-editListClick() : void
+editDescriptionClick() : void
+editDateClick() : void
 addItemClick() : void
 printCompClick() : void
 saveListClick() : void
 removeItemClick() : void
 printIncompClick() : void
-editItemClick() : void
 completeItemClick() : void
 printAllClick() : void
 }
